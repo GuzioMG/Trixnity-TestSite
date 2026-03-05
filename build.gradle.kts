@@ -24,3 +24,9 @@ kotlin {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "hub.guzio.TrixnityTest.MainKt"
+    }
+}
