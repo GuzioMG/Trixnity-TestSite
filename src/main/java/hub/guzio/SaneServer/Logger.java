@@ -1,4 +1,4 @@
-package hub.guzio.MatrixTest.sensibleServer;
+package hub.guzio.SaneServer;
 
 public class Logger {
     public void log(String msg){

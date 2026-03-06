@@ -1,4 +1,4 @@
-package hub.guzio.MatrixTest.sensibleServer;
+package hub.guzio.SaneServer;
 
 import java.nio.charset.StandardCharsets;
 

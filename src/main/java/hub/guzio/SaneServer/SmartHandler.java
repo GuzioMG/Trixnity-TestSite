@@ -1,4 +1,4 @@
-package hub.guzio.MatrixTest.sensibleServer;
+package hub.guzio.SaneServer;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
