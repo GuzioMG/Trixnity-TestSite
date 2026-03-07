@@ -6,7 +6,7 @@
 
     <groupId>hub.guzio.SaneServer</groupId>
     <artifactId>sane-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2000.0.0</version>
     <licenses>
         <license>
             <name>MIT License</name>

@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Map;
 
 public abstract class SmartHandler implements HttpHandler {
 
@@ -25,7 +26,10 @@ public abstract class SmartHandler implements HttpHandler {
         try {
             //Getting response data
             try {
-                resp = onRequest(exchange, path, head);
+                var parts = path.toString().split("\\?", 2);
+                var query = new String[0];
+                if (parts.length > 1) query = parts[1].split("&");
+                resp = onRequest(exchange, head, path, parts[0].split("/"), query);
             } catch (Throwable e) {
                 head.clear();
                 try { resp = onError(exchange, path, head, e); }
@@ -37,7 +41,7 @@ public abstract class SmartHandler implements HttpHandler {
             }
             head.add("Content-Type", "text/"+resp.format()+"; charset=UTF-8");
 
-            //Sending headers (feat. a retry)
+            //Sending headers (feat. a retry, but with error)
             try{
                 exchange.sendResponseHeaders(resp.code(), resp.length());
             } catch (IOException e){
@@ -66,8 +70,8 @@ public abstract class SmartHandler implements HttpHandler {
         exchange.close();
     }
 
-    public abstract Response onRequest(HttpExchange rq, URI path, Headers resp) throws Throwable;
-    public Response onError(HttpExchange rq, URI path, Headers resp, Throwable e) throws Throwable {
+    protected abstract Response onRequest(HttpExchange rq, Headers resp, URI rawPath, String[] processedPath, String[] queryParameters) throws Throwable;
+    protected Response onError(HttpExchange rq, URI path, Headers resp, Throwable e) throws Throwable {
         lg.err("Error while handling \""+path+"\": ", e);
         return new Response(500, "plain", "500 Unhandled server exception");
     }
