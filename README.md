@@ -1,2 +1,5 @@
-# SaneServer
-An ultra-thin wrapper over the vanilla HttpServer in Java with a modernized UX (returning responses instead of manually controlling TCP/HTTP connection lifecycle).
+# WARNING: ARCHIVED
+This was supposed to be used by my other library, [JMatrix](https://github.com/GuzioMG/JMatrix), which was itself supposed to be used by the [Minetrix](https://github.com/GuzioMG/Minetrix) Minecraft mod, but I have since given up on contributing to the [Matrix ecosystem](https://matrix.org/ecosystem/bridges/) due to fundamnetal system design flaws (that make it unatracctive as a platfrom to me) that I wasn't aware of initially (and I'm instead planning to move to [Fluxxer](), once it drops its [federation system later this year]()), ergo this entire chain of repos is now archived. I'd usually fully private-ouT repos that are 100% dead and not coming back, but:
+- Minetrix is a fork of a multi-version mod template (the template was misconfigured and couldn't be templated-from, so I had to fork), so I cannot private it out.
+- JMatrix has a star, so I guess someone needs it, and I'm not gonna rugpull them, **ALTHOUGH THEY'RE NOW ON THEIR OWN WITH MAINTENANCE, AS THAT LIB ISN'T EVEN FINISHED!**
+- SaneServer is a dependency of JMatrix, so - if my „do not rugpull” rule stands - I cannot privatize this either.
